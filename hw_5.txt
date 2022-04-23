@@ -1,0 +1,18 @@
+1.
+SELECT
+video.id,
+url
+FROM video
+WHERE owner_id =
+(SELECT id FROM users WHERE first_name = 'Hall' AND last_name = 'Lee');
+
+
+2.
+SELECT
+(SELECT CONCAT(first_name, ' ', last_name) FROM users WHERE id =
+photo.owner_id) AS user,
+url,
+size
+FROM photo
+ORDER BY size DESC
+LIMIT 3;

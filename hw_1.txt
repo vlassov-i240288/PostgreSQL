@@ -1,0 +1,94 @@
+CREATE TABLE "messages" (
+  id SERIAL PRIMARY KEY,
+  url varchar(255),
+  from_user_id integer NULL,
+  to_user_id integer NULL,
+  body TEXT default NULL,
+  is_important varchar(255) default NULL,
+  is_delivered varchar(255) default NULL,
+  created_at varchar(255)
+);
+
+
+CREATE TABLE "video" (
+  id SERIAL PRIMARY KEY,
+  url varchar(255),
+  owner_id integer NULL,
+  description TEXT default NULL,
+  uploaded_at varchar(255),
+  size integer NULL
+);
+
+
+CREATE TABLE "photo" (
+  id SERIAL PRIMARY KEY,
+  url varchar(255),
+  owner_id integer NULL,
+  description TEXT default NULL,
+  uploaded_at varchar(255),
+  size integer NULL
+);
+
+
+CREATE TABLE "users" (
+  id SERIAL PRIMARY KEY,
+  first_name varchar(255) default NULL,
+  last_name varchar(255) default NULL,
+  email varchar(255) default NULL,
+  phone varchar(100) default NULL,
+  main_photo_id integer NULL,
+  created_at varchar(255)
+);
+
+
+CREATE TABLE "disslikes" (
+  id SERIAL PRIMARY KEY,
+  disslikes integer NULL,
+  from_user_id integer NULL
+);
+
+
+CREATE TABLE "likes" (
+  id SERIAL PRIMARY KEY,
+  likes integer NULL,
+  from_user_id integer NULL
+);
+
+
+CREATE TABLE "publications" (
+  id SERIAL PRIMARY KEY,
+  photo_id integer NULL,
+  video_id integer NULL,
+  descriptions varchar(255) default NULL,
+  count_likes integer NULL,
+  count_disslikes integer NULL
+);
+
+
+CREATE TABLE "status" (
+  id SERIAL PRIMARY KEY,
+  status_text varchar(255) default NULL,
+  from_user_id integer NULL
+);
+
+
+CREATE TABLE "subscriber" (
+  id SERIAL PRIMARY KEY,
+  name varchar(30) default NULL,
+  subscriber_user_id INT NOT NULL
+);
+
+
+CREATE TABLE subscription (
+id SERIAL PRIMARY KEY,
+requested_by_user_id INT NOT NULL,
+requested_to_user_id INT NOT NULL,
+status_id INT NOT NULL,
+requested_at TIMESTAMP,
+confirmed_at TIMESTAMP
+);
+
+
+
+
+

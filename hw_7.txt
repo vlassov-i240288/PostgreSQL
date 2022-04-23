@@ -1,0 +1,19 @@
+Создать два представления, в основе которых лежат сложные запросы.
+
+1.
+CREATE VIEW users_without_messages AS
+SELECT users.id, users.first_name, users.last_name
+FROM users
+LEFT JOIN messages
+ON users.id = messages.from_user_id
+WHERE messages.id IS NULL;
+
+SELECT * FROM users_without_messages LIMIT 3;
+
+2.
+CREATE VIEW users_added_last_month AS
+SELECT * FROM users
+WHERE created_at > (current_timestamp - interval '1 month');
+
+
+SELECT first_name, last_name FROM users_added_last_month LIMIT 3;

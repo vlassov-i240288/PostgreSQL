@@ -1,0 +1,12 @@
+CREATE FUNCTION user_most_active_by_messages()
+RETURNS INTEGER AS
+$$
+SELECT from_user_id
+FROM messages
+GROUP BY from_user_id
+ORDER BY COUNT(*) DESC
+LIMIT 1;
+$$
+LANGUAGE SQL;
+
+SELECT user_most_active_by_messages();

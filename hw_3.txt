@@ -1,0 +1,71 @@
+ALTER TABLE messages
+ADD CONSTRAINT messages_from_user_id_fk
+FOREIGN KEY (from_user_id)
+REFERENCES users (id)
+ON DELETE CASCADE;
+
+ALTER TABLE messages
+ADD CONSTRAINT messages_to_user_id_fk
+FOREIGN KEY (to_user_id)
+REFERENCES users (id)
+ON DELETE CASCADE;
+
+ALTER TABLE video
+ADD CONSTRAINT video_owner_id_fk
+FOREIGN KEY (owner_id)
+REFERENCES users (id)
+ON DELETE CASCADE;
+
+ALTER TABLE photo
+ADD CONSTRAINT photo_owner_id_fk
+FOREIGN KEY (owner_id)
+REFERENCES users (id)
+ON DELETE CASCADE;
+
+ALTER TABLE disslikes
+ADD CONSTRAINT disslikes_from_user_id_fk
+FOREIGN KEY (from_user_id)
+REFERENCES users (id)
+ON DELETE CASCADE;
+
+ALTER TABLE likes
+ADD CONSTRAINT likes_from_user_id_fk
+FOREIGN KEY (from_user_id)
+REFERENCES users (id)
+ON DELETE CASCADE;
+
+ALTER TABLE publications
+ADD CONSTRAINT publications_photo_id_fk
+FOREIGN KEY (photo_id)
+REFERENCES users (id)
+ON DELETE CASCADE;
+
+ALTER TABLE publications
+ADD CONSTRAINT publications_video_id_fk
+FOREIGN KEY (video_id)
+REFERENCES users (id)
+ON DELETE CASCADE;
+
+ALTER TABLE status
+ADD CONSTRAINT status_from_user_id_fk
+FOREIGN KEY (from_user_id)
+REFERENCES users (id)
+ON DELETE CASCADE;
+
+ALTER TABLE subscriber
+ADD CONSTRAINT subscriber_subscriber_user_id_fk
+FOREIGN KEY (subscriber_user_id)
+REFERENCES users (id)
+ON DELETE CASCADE;
+
+ALTER TABLE subscription
+ADD CONSTRAINT subscription_requested_by_user_id_fk
+FOREIGN KEY (requested_by_user_id)
+REFERENCES users (id)
+ON DELETE CASCADE;
+
+ALTER TABLE subscription
+ADD CONSTRAINT subscription_requested_to_user_id_fk
+FOREIGN KEY (requested_to_user_id)
+REFERENCES users (id)
+ON DELETE CASCADE;
